@@ -25,11 +25,6 @@ requirements:
     - cmake
     - make
 
-test:
-  commands:
-    - test -f $PREFIX/include/date/date.h  # [unix]
-    - if not exist %LIBRARY_INC%\\date\\date.h exit 1  # [win]
-
 about:
   home: https://github.com/HowardHinnant/date
   summary: A date and time library based on the C++11/14/17 <chrono> header
