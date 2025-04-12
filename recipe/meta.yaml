@@ -1,0 +1,40 @@
+{% set versions = {
+    "3.0.3": "30de45a34a2605cca33a993a9ea54e8f140f23b1caf1acf3c2fd436c42c7d942"
+} %}
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', 'libdate-tz')|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  url: "https://github.com/HowardHinnant/date/archive/refs/tags/v{{version}}.tar.gz"
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+
+requirements:
+  build:
+    - {{ compiler('cxx') }} # [linux]
+    - {{ compiler('c') }}   # [linux]
+    - {{ stdlib('c') }}
+
+    - cmake
+    - make
+
+test:
+  commands:
+    - test -f $PREFIX/include/date/date.h  # [unix]
+    - if not exist %LIBRARY_INC%\\date\\date.h exit 1  # [win]
+
+about:
+  home: https://github.com/HowardHinnant/date
+  summary: A date and time library based on the C++11/14/17 <chrono> header
+  license: MIT
+
+extra:
+  recipe-maintainers:
+    - meiyasan
