@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# preserve the user's existing setting
+if [ ! -z "${TZDIR+x}" ]; then
+	export CONDA_BACKUP_TZDIR="${TZDIR}"
+fi
+
+if [ -z "${TZDIR+x}" ]; then
+        export TZDIR="/usr/share/zoneinfo"
+fi

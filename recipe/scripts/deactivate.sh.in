@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# reinstate the backup from outside the environment
+if [ ! -z "${CONDA_BACKUP_TZDIR}" ]; then
+	export TZDIR="${CONDA_BACKUP_TZDIR}"
+	unset CONDA_BACKUP_TZDIR
+# no backup, just unset
+else
+	unset TZDIR
+fi
