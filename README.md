@@ -15,7 +15,7 @@ A date and time library based on the C++11/14/17 <chrono> header
 
 | Architecture | Latest published |
 |--------------|------------------|
-| linux-amd64 (`linux-64`) | ✅ `0.0.0.dev` |
+| linux-amd64 (`linux-64`) | ❌ not published |
 | linux-arm64 (`linux-aarch64`) | ❌ not published |
 
 _As of the last feedstock render; the badges above are live._
