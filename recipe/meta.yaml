@@ -24,6 +24,16 @@ requirements:
 
     - cmake
     - make
+  host:
+    # CMakeLists.txt's find_package(CURL) (used by the TZ_LIB component,
+    # -DBUILD_TZ_LIB=ON in build.sh, to download timezone data) was never
+    # declared here -- it happened to silently resolve against a system
+    # curl outside conda's own prefix, which conda-build's own
+    # ${CMAKE_ARGS} (CMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY, restricting
+    # searches to the conda prefix/sysroot) correctly stopped allowing.
+    - curl
+  run:
+    - curl
 
 about:
   home: https://github.com/HowardHinnant/date
