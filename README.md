@@ -13,7 +13,12 @@ A date and time library based on the C++11/14/17 <chrono> header
 
 ## Architectures
 
-State per architecture: see the platforms badge above or [anaconda.org/hep-forge/libdate-tz](https://anaconda.org/hep-forge/libdate-tz).
+| Architecture | Latest published |
+|--------------|------------------|
+| linux-amd64 (`linux-64`) | ✅ `3.0.5` |
+| linux-arm64 (`linux-aarch64`) | ✅ `3.0.5` |
+
+_As of the last feedstock render; the badges above are live._
 
 
 ## Install
