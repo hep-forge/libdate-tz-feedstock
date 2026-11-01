@@ -44,3 +44,9 @@ about:
 extra:
   recipe-maintainers:
     - meiyasan
+  # Long-Term-Supported in *this channel* -- protected from the anaconda
+  # trim's "keep newest 2" rule (see channel-maintenance.yml). root-plus
+  # pins 3.0.3: 3.0.5's parse() is ambiguous under C++20 and later.
+  lts:
+    main:
+      - "3.0.3"
